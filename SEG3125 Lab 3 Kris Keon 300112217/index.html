@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<! This style sheet is taken from  https://www.w3schools.com/howto/howto_js_tabs.asp>
+	<link href="styles/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="body">
+
+    <title> Farm Fresh Market</title>
+    <header id="companyName"> <img src="/images/logo.png" alt="logo" height =60>Farm Fresh Market</header>
+    <br>
+
+
+<!-- Tab links, each one with an onclick event associated with it -->
+<div class="tab">
+  <button class="tablinks" onclick="openInfo(event, 'Client')">Home</button>
+  <button class="tablinks" onclick="openInfo(event, 'Products')">Products</button>
+  <button class="tablinks" onclick="openInfo(event, 'Cart')">Cart</button>
+</div>
+
+<!-- Tab content -->
+<div id="Client" class="tabcontent">
+  <h3>Client Information</h3>
+  <p>Select a dietary restriction or preference from the list below.</p>
+	Choose a Category:
+	<select id="dietSelect" name="dietSelect" onchange="populateListProductChoices(this.id, 'displayProduct')">
+	<option value=""></option>
+	<option value="Vegetarian">Vegetarian</option>
+    <option value="GlutenFree">GlutenFree</option>
+    <option value="Organic">Organic</option>
+    <option value="NonOrganic">Non Organic</option>
+    <option value="lactoseFree">Lactose Intolerant</option>
+    <option value="None">None</option>
+	</select>
+</div>
+
+
+
+<div id="Products" class="tabcontent" >
+  <div>
+    <h3>Filter</h3>
+    <p>Your search can further be narrowed down by selecting what food types you wish to see.
+        Select all that apply.
+    </p>
+
+    <div class="filter-section">
+        <label>
+          <input type="checkbox" name="food-type" value="fruits">
+          Fruits
+        </label>
+        
+        <label>
+          <input type="checkbox" name="food-type" value="vegetables">
+          Vegetables
+        </label>
+        
+        <label>
+          <input type="checkbox" name="food-type" value="dairy">
+          Dairy
+        </label>
+
+        <label>
+            <input type="checkbox" name="food-type" value="meat">
+            Meat
+          </label>
+      </div>
+
+      <br>
+    
+</div>
+  <h3>Your targeted products</h3>
+  <p>We preselected products based on your restrictions.</p>
+	 Choose items to buy:
+	 <div id="displayProduct"></div>
+	 <button id="addCart" type="button" class="block" onclick="selectedItems()">
+		Add selected items to cart.
+	</button>
+</div>
+
+<div id="Cart" class="tabcontent">
+  <h3>Cart</h3>
+  <p>Here is your cart.</p>
+  <div id="displayCart"></div>
+</div>
+
+<script src="scripts/groceries.js"></script>
+<script src="scripts/main.js"></script>
+
+<br>
+<div id="credit">
+    <p>Website designed by Kris Keon <img src="/images/signature.png" alt="signature" height="30"></p>
+</div>
+
+</body>
+</html>
